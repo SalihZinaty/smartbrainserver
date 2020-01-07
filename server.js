@@ -8,7 +8,7 @@ const knex = require('knex');
 const db = knex({
     client:'pg',
     connection:{
-        host: '127.0.0.1',
+        host: 'postgresql-curly-67663',
         user:'postgres',
         password:'test',
         database:'smartbrain'
@@ -18,11 +18,11 @@ app.use(bodyParser.json());
 app.use(cors());
 // we need to separate the tables of DB
 /* CREATE TABLE users ( 
-    //id serial PRIMARY KEY, 
-    //name VARCHAR (100),
-    // email text UNIQUE NOT NULL,
-    // entries BIGINT DEFAULT 0, 
-    //joined TIMESTAMP NOT NULL
+    id serial PRIMARY KEY, 
+    name VARCHAR (100),
+    email text UNIQUE NOT NULL,
+    entries BIGINT DEFAULT 0, 
+    joined TIMESTAMP NOT NULL
     );
    CREATE TABLE login ( 
     id serial PRIMARY KEY, 
@@ -63,7 +63,7 @@ app.post('/signin', (req,res) => {
         })
 
 })
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 
 
 //register - adding a new user to the database
