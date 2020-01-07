@@ -8,10 +8,8 @@ const knex = require('knex');
 const db = knex({
     client:'pg',
     connection:{
-        host: 'postgresql-curly-67663',
-        user:'postgres',
-        password:'test',
-        database:'smartbrain'
+        host: process.env.DATABASE_URL,
+        ssl: true
     }
 });
 app.use(bodyParser.json());
