@@ -12,6 +12,7 @@ const db = knex({
         ssl: true
     }
 });
+console.log(process.env.DATABASE_URL);
 app.use(cors());
 app.use(bodyParser.json());
 
